@@ -32,7 +32,7 @@ const STORAGE_SCHEMA = {
 } as const;
 
 // Tools: Define WHAT the AI can do (structure & validation)
-export const tools = [
+const tools = [
     {
         type: "function" as const,
         function: {
