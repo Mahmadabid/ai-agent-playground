@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# AI Agent Playground: A Gemini-Based LocalStorage Interaction Demo (via OpenAI SDK)
 
-First, run the development server:
+This is a **Next.js + TypeScript** demo project that showcases how to use **Gemini via the OpenAI SDK** (using the Chat Completion API) to interact with client-side `localStorage`. It's a proof-of-concept for building stateful, AI-driven user experiences using REST APIs — with **webhook support coming soon**. The full chat history is passed to the AI on each request, enabling context-aware, multi-turn conversations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧠 Powered By
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **OpenAI SDK** – Used to structure agent logic and function calling
+- **Gemini API** – The actual LLM backend powering responses
+- **atomHooks** – Lightweight state management for syncing localStorage with UI
+- **Next.js (TypeScript)** – Frontend + API architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Gemini Agent via REST API**  
+  User input is sent to a REST endpoint where a Gemini-based agent responds using structured function calls.
+- **Tool Calling Support**  
+  The agent can invoke:
+    - `getLocalStorage(key)`
+    - `setLocalStorage(key, value)`
+    - `continueConversation()`
+- **Multi-Step Reasoning**  
+  The AI can chain operations and use conditionals based on previously retrieved values.
+- **Reactive UI with atomHooks**  
+  Client-side state changes reflect immediately using reactive localStorage bindings.
+- **Webhook Support (Coming Soon)**  
+  Webhooks will allow external triggers to invoke agent actions in future iterations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Supported Keys
 
-## Deploy on Vercel
+- `calculation` (number)
+- `flag` (boolean)
+- `note` (string)
+- `theme` ("light" | "dark")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Quick Start
+
+1. `npm install`
+2. `npm run dev`
+3. Go to `http://localhost:3000`
+4. Enter your Gemini API key in Settings
+5. Start interacting via the REST interface
+
+---
+
+This project is intended as a reference for developers building AI agents that manipulate client-side browser state using modern LLMs through the OpenAI SDK.
